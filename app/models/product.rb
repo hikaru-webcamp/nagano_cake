@@ -12,8 +12,10 @@ class Product < ApplicationRecord
   
   # 税込の計算
   def tax_price
-    tax_price = self.price * 1.08
-    return tax_price.floor.to_s(:delimited, delimiter: ",")
+     # 税率
+    tax_rate = 1.08
+    tax_price = self.price * tax_rate
+    return tax_price.floor
   end
   
 end
