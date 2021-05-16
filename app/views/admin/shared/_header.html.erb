@@ -1,6 +1,5 @@
 <% unless admin_signed_in? %>
   <%# adminサインイン前は会員側のヘッダーを表示 %>
-  admin_header
   <%= render "public/shared/header" %>
 <% else %>
   <%# adminサインイン済み %>
