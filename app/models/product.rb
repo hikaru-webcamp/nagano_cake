@@ -10,4 +10,10 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   
+  # 税込の計算
+  def tax_price
+    tax_price = self.price * 1.08
+    return tax_price.floor.to_s(:delimited, delimiter: ",")
+  end
+  
 end
