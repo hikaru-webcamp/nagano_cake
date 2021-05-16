@@ -23,8 +23,10 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 
+  devise_for :admins, path: '/admin', only: [:sessions], controllers: {
+    :sessions => 'admin/sessions'
+  }
   namespace :admin do
-    devise_for :admins, path: '/', only: [:sessions]
     root :to => 'homes#top'
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
