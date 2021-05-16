@@ -9,6 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if controller.class.parent.name == "Admin" %>
+        <%# Admin側のヘッダー %>
+        <%= render "admin/shared/header" %>
+      <% else %>
+        <%# Public側のヘッダー %>
+        <%= render "public/shared/header" %>
+      <% end %>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
