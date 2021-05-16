@@ -21,17 +21,19 @@
        <% @orders.each do |order| %>
           <tbody>
               <tr>
+                <!--購入日時のリンク先は注文履歴詳細 slash_and_timeは日本-->
                 <td><u><a href="/admin/orders/<%= order.customer.id %>"><%= order.created_at.to_s(:slash_and_time) %></a></u></td>
+                <!--オーダーのカスタマーに紐付いてるネームをもってくる-->
                 <td><%= order.customer.last_name + order.customer.first_name %></td>
 
                  <td>
+                   <!--商品個数をeach文でまわして合計値をだす-->
                    <% @order_quantity = 0 %>
                    <% order.order_details.each do |order_detail| %>
-                    <% @order_quantity += order_detail.product_quantity %>
-                    <% end %>
-                    <%= @order_quantity %>
+                   <% @order_quantity += order_detail.quantity %>
+                   <% end %>
+                   <%= @order_quantity %>
                  </td>
-
                 <td><%= order.order_status %></td>
               </tr>
           </tbody>
@@ -39,6 +41,5 @@
       </table>
     </div>
   </div>
-
 </div>
 
