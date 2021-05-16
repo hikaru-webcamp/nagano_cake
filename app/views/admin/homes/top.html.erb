@@ -1,2 +1,44 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6 offset-md-1">
+      <h5 class="d-inline-flex bg-light px-3 py-1 font-weight-bold mt-5 mb-4">注⽂履歴一覧</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-borderless">
+          <thead class="thead-light">
+              <tr>
+                 <th>購入日時</th>
+                 <th>購入者</th>
+                 <th>注文個数</th>
+                 <th>注文ステータス</th>
+              </tr>
+          </thead>
+       <% @orders.each do |order| %>
+          <tbody>
+              <tr>
+                <td><u><a href="/admin/orders/<%= order.customer.id %>"><%= order.created_at.to_s(:slash_and_time) %></a></u></td>
+                <td><%= order.customer.last_name + order.customer.first_name %></td>
+
+                 <td>
+                   <% @order_quantity = 0 %>
+                   <% order.order_details.each do |order_detail| %>
+                    <% @order_quantity += order_detail.product_quantity %>
+                    <% end %>
+                    <%= @order_quantity %>
+                 </td>
+
+                <td><%= order.order_status %></td>
+              </tr>
+          </tbody>
+       <% end %>
+      </table>
+    </div>
+  </div>
+
+</div>
+
