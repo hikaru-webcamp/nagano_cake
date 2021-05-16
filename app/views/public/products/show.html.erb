@@ -11,6 +11,7 @@
       </div>
       <div class="cart_product_add">
         <%= form_with model: @cart_product, local:true do |f| %>
+          <%= f.hidden_field :product_id, value:  @product.id %>
           <%= f.select :quantity, [1, 2, 3, 4, 5, 6, 7, 8, 9], include_blank: "個数選択" %>
           <%= f.hidden_field :product_id, values:  @product.id %>
           <%= f.submit "カートに入れる", class: "btn btn-success" %>
