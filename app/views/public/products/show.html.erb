@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-4 mt-5 mx-auto">
       <h1>画像画像画像画像画像画像画像画像画像画像画像画像画像画像画像画像アタッチメント</h1>
-
+      
     </div>
     <div class="col-5 mt-5 mx-auto">
       <div class="product-information">
@@ -13,7 +13,7 @@
       <div class="cart_product_add mt-3">
         <%= form_with model: @cart_product, local:true do |f| %>
           <%= f.hidden_field :product_id, value:  @product.id %>
-          <%= f.select :quantity, [["個数選択",0],["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9]] %>
+          <%= f.select :quantity, (1..9), {selected: 1} %>
           <%= f.submit "カートに入れる", class: "btn btn-success ml-4" %>
         <% end %>
       </div>
