@@ -13,12 +13,21 @@ class Public::CartProductsController < ApplicationController
   end
 
   def update
+    cart_product = CartProduct.find(params[:id])
+    cart_product.update(cart_product_params)
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
+    cart_product = CartProduct.find(params[:id])
+    cart_product.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy_all
+    cart_products = CartProduct.where(customer_id: current_customer.id)
+    cart_products.destroy_all
+    redirect_back(fallback_location: root_path)
   end
   
   private
