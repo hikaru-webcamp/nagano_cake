@@ -23,13 +23,14 @@
           <% @orders.each do |order| %>
               <tr>
                 <!--購入日時のリンク先は注文履歴詳細 slash_and_timeは日本-->
-                <td><%= link_to admin_order_path(order) do %></td>
+                <td><%= link_to admin_order_path(order) do %>
                 　　    <%= order.created_at.to_s(:slash_and_time) %>
                 　   <% end %>
+                </td>
                 <!--オーダーのカスタマーに紐付いてるネームをもってくる-->
                 <td><%= order.customer.last_name + order.customer.first_name %></td>
                  <!--商品個数をeach文でまわして合計値をだす-->
-                 <td>order.order_details.sum(:quantity)</td>
+                <td><%= order.order_details.sum(:quantity) %></td>
                  <!--オーターのステータスの記述-->
                 <td><%= order.order_status %></td>
               </tr>
