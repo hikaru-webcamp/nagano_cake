@@ -17,14 +17,17 @@
       <tbody>
         <% @products.each do |product| %>
           <tr>
-            <!--商品IDの記載-->
             <td><%= product.id %></td>
-            <!--商品名記載_商品詳細画面に遷移--> 
             <td><%= link_to product.name, admin_product_path(product.id) %></td>
-             <!--商品価格（税別）記載-->
-            <td><%= products.price %></td>
-             <!--商品のステータスの記載-->
-            <td><%= products.is_active %></td>
+            <td><%= product.price %></td>
+            <td><%= product.genre.name %></td>
+              <td>
+                <% if product.is_active %>
+                  <span class="text-success">販売中</span>
+                <% else %>
+                  <span class="text-secondary">販売停止中</span>
+                <% end %>
+              </td>
           </tr>
    　  　<% end %>
       </tbody>
