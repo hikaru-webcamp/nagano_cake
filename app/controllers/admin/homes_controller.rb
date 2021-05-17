@@ -8,13 +8,11 @@ class Admin::HomesController < ApplicationController
   #ヘッダーから遷移してきた場合は、全顧客の注文履歴
 
   def top
-    path = Rails.application.routes.recognize_path(request.referer)
-    #もし遷移元のコントローラーがadmin/customersであり、かつアクションがshowだったら
-    if path[:controller]=="admin/customers" && path[:action] == "show"
-    #遷移してきたIDをカスタマーIDに入れて、whereで取得
-      @orders = Order.where(customer_id: path[:id])
+    if params[:customer_id]
+      #遷移してきたIDをカスタマーIDに入れて、whereで取得
+      @orders = Order.where(customer_id: params[:customer_id])
     else
-    #オーダーのデーター全部
+      #オーダーのデーター全部
       @orders = Order.all
     end
   end
