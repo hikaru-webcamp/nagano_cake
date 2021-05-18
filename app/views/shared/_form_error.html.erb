@@ -1,8 +1,6 @@
 <%# フォームエラー表示の共通レイアウト %>
 <%# form_withの次の行でこのレイアウトをrenderすれば良い感じにエラー表示します %>
 <%# 引数にformのmodelを指定 %>
-<%# 例： <%= render 'shared/form_error', model: @customer %> %>
-
 
 <% if model.errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show">

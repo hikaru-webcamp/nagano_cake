@@ -4,6 +4,7 @@
   </h2>
 
   <%= form_with model: @customer, url: admin_customer_path, local:true do |f| %>
+    <%= render 'shared/form_error', model: @customer %>
     <div class="form-group row">
       <%= f.label :id, "会員ID", class: "form-label col-sm-2" %>
       <div class="col-sm-8">
