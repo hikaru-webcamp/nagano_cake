@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   scope module: 'public' do
-    devise_for :customers, only: [:sessions, :registrations]
     root :to => 'homes#top'
     get 'about' => 'homes#about'
     resource :customers, only: [:edit, :update] do
@@ -8,6 +7,7 @@ Rails.application.routes.draw do
       get 'out_confirm'
       patch 'out'
     end
+    devise_for :customers, only: [:sessions, :registrations]
     resources :products, only: [:index, :show]
     resources :cart_products, only: [:index, :update, :create, :destroy] do
       collection do
