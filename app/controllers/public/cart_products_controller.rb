@@ -18,17 +18,30 @@ class Public::CartProductsController < ApplicationController
   end
 
   def update
+    cart_product = CartProduct.find(params[:id])
+    if cart_product.customer_id == current_customer.id
+      cart_product.update(cart_product_params)
+    end
+    redirect_to cart_products_path
   end
 
   def destroy
+    cart_product = CartProduct.find(params[:id])
+    if cart_product.customer_id == current_customer.id
+      cart_product.destroy
+    end
+    redirect_to cart_products_path
   end
 
   def destroy_all
+    cart_products = CartProduct.where(customer_id: current_customer.id)
+    cart_products.destroy_all
+    redirect_to cart_products_path
   end
-  
+
   private
-  
+
   def cart_product_params
-    params.require(:cart_product).permit(:product_id, :quantity)	
+    params.require(:cart_product).permit(:product_id, :quantity)
   end
 end
