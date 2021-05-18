@@ -1,10 +1,9 @@
 <div class="container mt-4">
   <div class="row">
-    <div class="col-4 mt-5 mx-auto">
-      <h1>画像画像画像画像画像画像画像画像画像画像画像画像画像画像画像画像アタッチメント</h1>
-      
+    <div class="col-5 mt-5">
+      <%= attachment_image_tag @product, :image, :fill, 400, 250, format: "jpeg" %>
     </div>
-    <div class="col-5 mt-5 mx-auto">
+    <div class="col-7 mt-5">
       <div class="product-information">
         <h1><%= @product.name %></h1>
         <h3><%= @product.introduction %></h3>
