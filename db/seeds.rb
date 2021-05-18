@@ -68,6 +68,8 @@ Customer.all.each do |customer|
       total_price += order_detail.quantity * order_detail.tax_included_price
       order_details.push(order_detail)
     end
+    
+    total_price += 800
 
     order = Order.create!(
       customer_id: customer.id,
