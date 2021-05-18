@@ -1,0 +1,21 @@
+<%# フォームエラー表示の共通レイアウト %>
+<%# form_withの次の行でこのレイアウトをrenderすれば良い感じにエラー表示します %>
+<%# 引数にformのmodelを指定 %>
+<%# 例： <%= render 'shared/form_error', model: @customer %> %>
+
+
+<% if model.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show">
+    <h5 class="alert-heading">
+      <%= pluralize(model.errors.count, "error") %> prohibited this <%= model.class.to_s.downcase %> from being saved:
+    </h5>
+    <ul class="mb-0">
+      <% model.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
