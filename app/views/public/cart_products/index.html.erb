@@ -21,8 +21,8 @@
       <tbody>
         <% @cart_products.each do |cart_product| %>
           <tr>
-            <td class="text-center">
-              画像アタッチメント
+            <td>
+              <%= attachment_image_tag cart_product.product, :image, :fill, 70, 50, format: "jpeg" %>
               <%= cart_product.product.name %>
             </td>
             <td class="text-center">
