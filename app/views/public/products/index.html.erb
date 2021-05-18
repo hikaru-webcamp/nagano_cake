@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row">
-        <h3>商品一覧<span class="small">(全<%= Product.where(is_active: true).count %>件)</span></h3>
+        <h3>商品一覧<span class="small">(全<%= @products.total_count %>件)</span></h3>
         
      </div>
      
      <div class="row">
          <% @products.each do |product| %>
           <div class="card">
-            <%= attachment_image_tag(product, :image, size: "200x200")
+            <%= attachment_image_tag(product, :image, size: "200x200") %>
               <h5 class="cart-title"><%= link_to product.name, product_path(product) %></h5>
-             <p class="card-text">¥<%= product.tax_price %></p>
+             <p class="card-text">¥<%= product.tax_price.to_s(:delimited)  %></p>
           </div>
          <% end %>
      </div>
