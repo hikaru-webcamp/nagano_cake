@@ -10,11 +10,14 @@ class Public::CartProductsController < ApplicationController
   def create
     cart_product = CartProduct.new(cart_product_params)
     cart_product.customer_id = current_customer.id
-    if cart_product.save
-      redirect_to cart_products_path
+    in_cart_product = CartProduct.find_by(product_id: cart_product.product_id, customer_id: current_customer.id)
+    if in_cart_product.present?
+      in_cart_product.quantity += cart_product.quantity
+      in_cart_product.save
     else
-      redirect_back(fallback_location: root_path)
+      cart_product.save
     end
+    redirect_to cart_products_path
   end
 
   def update
