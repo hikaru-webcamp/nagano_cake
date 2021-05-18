@@ -67,7 +67,7 @@
               <td><%= order_detail.tax_included_price * order_detail.quantity %></td>
               <td>
                 <%= form_with model: order_detail, url: admin_order_detail_path, local:true, class: "form-inline" do |f| %>
-                  <%= f.select :order_status, order_detail.class.making_statuses.keys,  {}, {class: "custom-select mr-2"} %>
+                  <%= f.select :making_status, order_detail.class.making_statuses.keys,  {}, {class: "custom-select mr-2"} %>
                   <%= f.submit "更新", class: "btn btn-success" %>
                 <% end %>
               </td>
