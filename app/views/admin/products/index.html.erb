@@ -9,35 +9,36 @@
       <% end %>
     </div>
 
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th>商品ID</th>
-          <th>商品名</th>
-          <th>税別価格</th>
-          <th>ジャンル</th>
-          <th>ステータス</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @products.each do |product| %>
+    <div class="col-12">
+      <table class="table">
+        <thead class="thead-light">
           <tr>
-            <td><%= product.id %></td>
-            <td><%= link_to product.name, admin_product_path(product.id) %></td>
-            <td><%= product.price %></td>
-            <td><%= product.genre.name %></td>
-            <td>
-              <% if product.is_active %>
-                <span class="text-success">販売中</span>
-              <% else %>
-                <span class="text-secondary">販売停止中</span>
-              <% end %>
-            </td>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税別価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.id %></td>
+              <td><%= link_to product.name, admin_product_path(product.id) %></td>
+              <td><%= product.price %></td>
+              <td><%= product.genre.name %></td>
+              <td>
+                <% if product.is_active %>
+                  <span class="text-success">販売中</span>
+                <% else %>
+                  <span class="text-secondary">販売停止中</span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
     <div class="mx-auto">
       <%= paginate @products %>
     </div>
