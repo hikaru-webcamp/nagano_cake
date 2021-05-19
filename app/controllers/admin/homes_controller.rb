@@ -1,5 +1,4 @@
 class Admin::HomesController < ApplicationController
-
 #ログイン済のカスタマーのみにアクセスを許可する
   before_action :authenticate_admin!
 
