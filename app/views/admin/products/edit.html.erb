@@ -1,2 +1,8 @@
-<h1>Admin::Products#edit</h1>
-<p>Find me in app/views/admin/products/edit.html.erb</p>
+<!--商品編集画面-->
+<div class="container">
+  <div class="row">
+    <h2 class="mb-3">商品編集</h2>
+  </div>
+<!--管理側の商品新規登録画面と商品編集画面をパーシャル-->
+  <%= render 'form', product: @product %>
+</div>

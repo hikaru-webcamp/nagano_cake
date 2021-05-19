@@ -1,2 +1,45 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <p class="title">商品詳細</p>
+      <%= attachment_image_tag @product, :image, format: 'jpeg', size: "270x150" %>
+    </div>
+    <div class="col-lg-8">
+      <table class="table table-borderless">
+        <tr>
+          <td style="width:20%">商品名</td>
+          <td><%= @product.name %></td>
+        </tr>
+        <tr>
+          <td>商品説明</td>
+          <td><%= @product.introduction %></td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td><%= @product.genre.name %></td>
+        </tr>
+        <tr>
+          <td>税込価格<br>（税抜価格）</td>
+          <td><%= @product.tax_price.to_s(:delimited) %>（<%= @product.price.to_s(:delimited) %>）円</td>
+        </tr>
+        <tr>
+          <td>販売ステータス</td>
+          <td>
+            <% if  @product.is_active == true %>
+              <p>販売中</p>
+            <%else%>
+              <p>販売停止中</p>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="center-block mx-auto">
+        <%= link_to "　　編集する　　", edit_admin_product_path(@product), class: 'btn btn-light btn-sm' %>
+      </div>
+    </div>
+
+</div>
