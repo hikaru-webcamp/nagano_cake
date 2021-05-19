@@ -1,2 +1,27 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="text-center mx-auto", id="top-image">
+      <%= image_tag "sample.jpg", size: "500x350" %>
+      <p class="text-white col" id="top-text">
+        ようこそ、ながのCAKEへ！<br>
+        このサイトは、ケーキ販売のECサイトになります。<br>
+        会員でない方も商品の閲覧はできますが、<br>
+        購入には会員登録が必要になります。<br>
+      </p>
+    </div>
+  </div>
+  <h3 class="mt-5">新着商品</h3>
+  <div class="row mt-2">
+    <% @products.each do |product| %>
+      <div class="col-3">
+        <%= link_to product_path(product) do%>
+          <%= attachment_image_tag(product, :image, size: "250x200" )%>
+          <h5><%= product.name %></h5>
+          <p>¥<%= product.tax_price.to_s(:delimited)  %></p>
+         <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "全ての商品を見る>", products_path, class: "float-right" %>
+</div>
+

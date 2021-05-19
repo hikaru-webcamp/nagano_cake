@@ -21,3 +21,14 @@
     @extend .is-invalid;
   }
 }
+
+#top-image {
+ position: relative;
+}
+
+#top-text {
+ font-size: 20px;
+ position: absolute;
+ top: 25%;
+ // left: auto;
+}
