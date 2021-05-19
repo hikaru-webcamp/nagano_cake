@@ -21,3 +21,11 @@
     @extend .is-invalid;
   }
 }
+
+#top-text {
+ color: white;
+ text-shadow: 2px  2px 10px #546,
+              -2px  2px 10px #777 ,
+              2px -2px 10px #777 ,
+              -2px -2px 10px #777;
+}
