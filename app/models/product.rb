@@ -9,7 +9,7 @@ class Product < ApplicationRecord
 #バリデーションの記述(空でないこと)
   validates :name, presence: true
   validates :price, presence: true
-  validates :image_id, presence: true
+  validates :image, presence: true
   
   # 税込の計算
   def tax_price
