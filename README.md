@@ -1,6 +1,7 @@
 
 # 長野県にある洋菓子店「Nagano_Cake」の通販サイトです。
-![pinterest_profile_image](https://user-images.githubusercontent.com/79980351/118918488-bf7ac500-b96d-11eb-9cef-dd4eeff05f85.png)
+
+![twitter_profile_image](https://user-images.githubusercontent.com/79980351/118932081-96b0fa80-b982-11eb-964a-b8b226d03b1c.png)
 
 # 背景
 地元で人気店である洋菓子店「Nagano_Cake」は、**食べたら忘れられないケーキ**とSNSで話題になっていた。
@@ -96,12 +97,12 @@ Nagano_cakeは通販をやっておらず、店舗直営での販売であるこ
 
 ※詳細は、Gemfile参照
 
-# インストール(下記コマンドの入力をして下さい）
+下記コマンドを実施して下さい
 * $ bundle install
 * $ rails db:migrate
 * $ rails db:seed
 
-※初期データのインストール行って頂けると下記のアカウント（テストアカウント）を使用できます。
+※初期データのインストールを実施頂けると下記のアカウント（テストアカウント）を使用できます。
 
 # テストアカウント
 ターミナルで上記の作業を実施した後、ローカルサーバーにてアクセスしご覧ください。
@@ -122,8 +123,3 @@ Nagano_cakeは通販をやっておらず、店舗直営での販売であるこ
 * はーちゃん
 * しょうちゃん
 * りゅうぽん
-
-
-
-
-
