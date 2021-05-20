@@ -1,6 +1,4 @@
-
 # 長野県にある洋菓子店「Nagano_Cake」の通販サイトです。
-
 ![twitter_profile_image](https://user-images.githubusercontent.com/79980351/118932081-96b0fa80-b982-11eb-964a-b8b226d03b1c.png)
 
 # 背景
@@ -118,6 +116,7 @@ Nagano_cakeは通販をやっておらず、店舗直営での販売であるこ
 （登録画面にて新規登録も可能です。）
 
 # 作成者
+![linkedin_banner_image_1](https://user-images.githubusercontent.com/79980351/118934919-df1de780-b985-11eb-9636-020cf79991eb.png)
 **TeamSmile_Member**
 * ひかるん
 * はーちゃん
