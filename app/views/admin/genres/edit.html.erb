@@ -1,20 +1,15 @@
 <!----------- ジャンル編集------------->
 <div class="container">
+  <%= render "shared/flash_message" %>
   <div class="row">
-    <div class="col-md-6 offset-md-1">
-      <h5 class="d-inline-flex bg-light px-3 py-1 font-weight-bold mt-5">ジャンル編集</h5>
-    </div>
-  </div>
+    <div class="col-12">
+      <h2 class="mb-3">ジャンル編集</h2>
 
-  <div class="row">
-    <div class="form-inline">
-      <%= form_with model: [:admin, @genre], local: true do |f| %>
-        <%= render 'shared/form_error', model: @genre %>
-        <div class="form-group col-md-12">
-          <p>ジャンル名</p>
-          <%= f.text_field :name, placeholder: "ジャンル", size: "30", class: "form-control ml-5 mt-5 mb-5" %>
-          <%= f.submit '変更を保存', class:"btn btn-sm btn-success ml-5" %>
-        </div>
+      <%= render 'shared/form_error', model: @genre %>
+      <%= form_with model: [:admin, @genre], local: true, class: "form-inline" do |f| %>
+        <%= f.label :name, "ジャンル", class: "mb-2 mr-sm-2" %>
+        <%= f.text_field :name, placeholder: "ジャンル", class: "form-control mb-2 mr-sm-2"%>
+        <%= f.submit '変更を保存', class:"btn btn-success mb-2" %>
       <% end %>
     </div>
   </div>
