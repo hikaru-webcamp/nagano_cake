@@ -10,6 +10,7 @@ class Public::AddressesController < ApplicationController
     if @address.save
       redirect_to addresses_path
     else
+      @addresses = Address.where(customer: current_customer)
       render :index
     end
   end
@@ -20,8 +21,11 @@ class Public::AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(address_params)
-    redirect_to addresses_path
+    if @address.update(address_params)
+      redirect_to addresses_path
+    else
+      render :edit
+    end
   end
 
   def destroy
