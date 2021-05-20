@@ -5,8 +5,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+   @order = Order.find(params[:id])
   end
-
+  
   def new
     if cart_products = CartProduct.where(customer_id: current_customer.id).present?
       @order = Order.new
