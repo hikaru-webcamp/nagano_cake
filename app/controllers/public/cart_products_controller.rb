@@ -18,7 +18,7 @@ class Public::CartProductsController < ApplicationController
     else
       cart_product.save
     end
-    redirect_to cart_products_path
+    redirect_to cart_products_path, notice: "カートに追加しました"
   end
 
   def update
@@ -26,7 +26,7 @@ class Public::CartProductsController < ApplicationController
     if cart_product.customer_id == current_customer.id
       cart_product.update(cart_product_params)
     end
-    redirect_to cart_products_path
+    redirect_to cart_products_path, notice: "商品の個数を変更しました"
   end
 
   def destroy
@@ -34,13 +34,13 @@ class Public::CartProductsController < ApplicationController
     if cart_product.customer_id == current_customer.id
       cart_product.destroy
     end
-    redirect_to cart_products_path
+    redirect_to cart_products_path, alert: "カートから商品を削除しました"
   end
 
   def destroy_all
     cart_products = CartProduct.where(customer_id: current_customer.id)
     cart_products.destroy_all
-    redirect_to cart_products_path
+    redirect_to cart_products_path, alert: "カートを空にしました"
   end
 
   private
