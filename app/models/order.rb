@@ -16,7 +16,7 @@ class Order < ApplicationRecord
 
   # order_statusが「入金待ち」以外に変更されたときに、「着手不可」になっている商品を全て「製作待ち」に変更
   def update_making_status
-    if order_status != "入金待ち"
+    unless order_status == "入金待ち"
       order_details.each do |order_detail|
         if order_detail.making_status == "着手不可"
           order_detail.update(making_status: "製作待ち")
