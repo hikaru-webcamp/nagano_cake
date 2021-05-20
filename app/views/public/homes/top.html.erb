@@ -17,15 +17,7 @@
   </div>
   <h3 class="mt-5">新着商品</h3>
   <div class="row mt-2">
-    <% @products.each do |product| %>
-      <div class="col-3">
-        <%= link_to product_path(product) do%>
-          <%= attachment_image_tag(product, :image, size: "250x200" )%>
-          <h5><%= product.name %></h5>
-          <p>¥<%= product.tax_price.to_s(:delimited)  %></p>
-         <% end %>
-      </div>
-    <% end %>
+    <%= render "public/products/products_index", products: @products %>
   </div>
   <%= link_to "全ての商品を見る>", products_path, class: "float-right" %>
 </div>
