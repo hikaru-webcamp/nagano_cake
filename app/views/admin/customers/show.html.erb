@@ -1,14 +1,14 @@
 <div class="container">
   <%= render "shared/flash_message" %>
   <div class="row">
-    <div class="col-12">
-      <h2 class="mb-3">
+    <div class="col-lg-10 col-xl-8 mx-auto">
+      <h2 class="mb-4">
         <%= @customer.last_name + @customer.first_name%>さんの会員詳細
       </h2>
 
       <table class="table table-borderless">
         <tr>
-          <th>会員ID</th>
+          <th style="width:25%">会員ID</th>
           <td><%= @customer.id %></td>
         </tr>
         <tr>
