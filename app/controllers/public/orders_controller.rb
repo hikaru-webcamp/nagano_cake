@@ -12,7 +12,7 @@ class Public::OrdersController < ApplicationController
       @customer = Customer.find(current_customer.id)
       @customer_adresses = Address.where(customer_id: current_customer.id)
     else
-      redirect_to cart_products_path
+      redirect_to cart_products_path, alert: "カートに商品が入っておりません"
     end
   end
 
