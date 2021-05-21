@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="min-vh-100 d-flex flex-column">
     <header class="mb-4">
       <% if controller.class.parent.name == "Admin" %>
         <%# Admin側のヘッダー %>
@@ -19,10 +19,10 @@
         <%= render "public/shared/header" %>
       <% end %>
     </header>
-    <main>
+    <main class="flex-grow-1">
       <%= yield %>
     </main>
-    <footer class="mt-2">
+    <footer class="mt-4">
       <%= render "shared/footer" %>
     </footer>
   </body>
