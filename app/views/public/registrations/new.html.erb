@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
     <%= form_with model: @customer, url: customer_registration_path, id:'new_customer', class:'new_customer', local: true do |f| %>
+    <%= render "shared/form_error", model: @customer %>
     <div class="form-group">
       <%= f.label :"名前", class: "col-md-4 col-form-label" %>
       <%= f.label :"(姓)　" %>
@@ -52,7 +53,6 @@
     <div class="col-md-9 mx-auto">
       <p><%= link_to "こちら", new_customer_session_path %>  からログインしてください。</p>
     </div>
-
 
    </div>
 
