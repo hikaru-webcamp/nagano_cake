@@ -3,12 +3,12 @@
   <%= render "shared/flash_message" %>
   <div class="row">
     <div class="col-12">
-      <h2 class="mb-3">ジャンル編集</h2>
+      <h2 class="mb-4">ジャンル編集</h2>
 
       <%= render 'shared/form_error', model: @genre %>
       <%= form_with model: [:admin, @genre], local: true, class: "form-inline" do |f| %>
         <%= f.label :name, "ジャンル", class: "mb-2 mr-sm-2" %>
-        <%= f.text_field :name, placeholder: "ジャンル", class: "form-control mb-2 mr-sm-2"%>
+        <%= f.text_field :name, placeholder: "ジャンル名を入力", class: "form-control mb-2 mr-sm-2"%>
         <%= f.submit '変更を保存', class:"btn btn-success mb-2" %>
       <% end %>
     </div>

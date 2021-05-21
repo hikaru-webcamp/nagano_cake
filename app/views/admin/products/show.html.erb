@@ -1,45 +1,57 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-4">
-      <p class="title">商品詳細</p>
-      <%= attachment_image_tag @product, :image, format: 'jpeg', size: "270x150" %>
+  <%= render "shared/flash_message" %>
+  <div class="row mb-3">
+    <div class="col-12">
+      <h2>商品詳細</h2>
     </div>
-    <div class="col-lg-8">
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 px-3 mb-3 d-flex">
+      <%= attachment_image_tag @product, :image, format: 'jpeg', class: "img-fluid rounded align-self-center" %>
+    </div>
+
+    <div class="col-md-8">
       <table class="table table-borderless">
         <tr>
-          <td style="width:20%">商品名</td>
+          <td style="width:30%">商品名</td>
           <td><%= @product.name %></td>
         </tr>
         <tr>
           <td>商品説明</td>
-          <td><%= @product.introduction %></td>
+          <td class="text-break">
+            <%= @product.introduction %>
+          </td>
         </tr>
         <tr>
           <td>ジャンル</td>
-          <td><%= @product.genre.name %></td>
+          <td>
+            <%= @product.genre.name %>
+          </td>
         </tr>
         <tr>
-          <td>税込価格<br>（税抜価格）</td>
-          <td><%= @product.tax_price.to_s(:delimited) %>（<%= @product.price.to_s(:delimited) %>）円</td>
+          <td>税込価格<br>(税抜価格)</td>
+          <td>
+            <%= "#{@product.tax_price.to_s(:delimited)} (#{@product.price.to_s(:delimited)}) 円" %>
+          </td>
         </tr>
         <tr>
           <td>販売ステータス</td>
           <td>
-            <% if  @product.is_active == true %>
-              <p>販売中</p>
-            <%else%>
-              <p>販売停止中</p>
+            <% if @product.is_active %>
+              <span class="text-success">販売中</span>
+            <% else %>
+              <span class="text-danger">販売停止中</span>
             <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-success" %>
           </td>
         </tr>
       </table>
     </div>
   </div>
-
-    <div class="row">
-      <div class="center-block mx-auto">
-        <%= link_to "　　編集する　　", edit_admin_product_path(@product), class: 'btn btn-light btn-sm' %>
-      </div>
-    </div>
-
 </div>

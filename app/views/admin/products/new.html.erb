@@ -1,8 +1,10 @@
 <!--商品新規登録画面-->
 <div class="container">
   <div class="row">
-    <h2 class="mb-3">商品新規登録</h2>
+    <div class="col-md-10 col-lg-8 col-xl-6 mx-auto">
+      <h2 class="mb-3">商品新規登録</h2>
+      <!--管理側の商品新規登録画面と商品編集画面をパーシャル-->
+      <%= render 'form', product: @product %>
+    </div>
   </div>
-<!--管理側の商品新規登録画面と商品編集画面をパーシャル-->
-  <%= render 'form', product: @product %>
 </div>
