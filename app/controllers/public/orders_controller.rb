@@ -19,13 +19,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
-    if order.save
+    @order = Order.new(order_params)
+    if @order.save
       cart_products = CartProduct.where(customer_id: current_customer.id)
       cart_products.each do |cart_product|
         OrderDetail.create(
           product_id: cart_product.product.id,
-          order_id: order.id,
+          order_id: @order.id,
           quantity: cart_product.quantity,
           tax_included_price: cart_product.product.tax_price
           )
@@ -33,7 +33,9 @@ class Public::OrdersController < ApplicationController
       cart_products.destroy_all
       redirect_to thanks_orders_path
     else
-      redirect_to new_order_path, alert: "注文の確定に失敗しました"
+      @customer = Customer.find(current_customer.id)
+      @customer_adresses = Address.where(customer_id: current_customer.id)
+      render :new
     end
   end
 

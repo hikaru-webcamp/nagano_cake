@@ -42,6 +42,7 @@
             </div>
             <div class="new_adress">
               <%= f.radio_button :address_option, 2 %>
+              <%= render "shared/form_error", model: @order %>
               <%= f.label :order_address, "新しいお届け先" %><br>
               <%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "col-4" %>
               <%= f.text_field :postal_code, placeholder: "00000000", class: "col-4" %><br>
