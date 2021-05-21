@@ -12,6 +12,9 @@ class Customer < ApplicationRecord
 
   # 全角カタカナと長音符にマッチする正規表現
   KATAKANA_REGEXP = /\A[\p{katakana}\u{30fc}]+\z/
+  
+  # 半角数字にマッチする正規表現
+  NUMBER_REGEXP = /\A[0-9]+\z/
 
   #バリデーションの記述(空でないこと)
   validates :last_name,  presence: true
@@ -19,9 +22,9 @@ class Customer < ApplicationRecord
   validates :last_name_kana, presence: true, format: { with: KATAKANA_REGEXP, message: "全角カタカナのみで入力して下さい" }
   validates :first_name_kana, presence: true, format: { with: KATAKANA_REGEXP, message: "全角カタカナのみで入力して下さい" }
   validates :email, presence: true
-  validates :postal_code,  presence: true
+  validates :postal_code,  presence: true, format: { with: NUMBER_REGEXP, message: "郵便番号は半角数字のみで入力して下さい" }
   validates :address, presence: true
-  validates :tel, presence: true
+  validates :tel, presence: true, format: { with: NUMBER_REGEXP, message: "電話番号は半角数字のみで入力して下さい" }
 
   # 退会したアカウントはログインできないようにする
   def active_for_authentication?
