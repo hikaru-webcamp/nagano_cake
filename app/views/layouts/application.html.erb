@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <header class="mb-2">
+    <header class="mb-4">
       <% if controller.class.parent.name == "Admin" %>
         <%# Admin側のヘッダー %>
         <%= render "admin/shared/header" %>
@@ -22,5 +22,8 @@
     <main>
       <%= yield %>
     </main>
+    <footer class="mt-2">
+      <%= render "shared/footer" %>
+    </footer>
   </body>
 </html>
