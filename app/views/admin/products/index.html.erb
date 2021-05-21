@@ -2,14 +2,16 @@
   <%= render "shared/flash_message" %>
   <div class="row">
     <div class="col-9">
-      <h2>商品一覧</h2>
+      <h2 class="mb-3">商品一覧</h2>
     </div>
     <div class="col-3 text-right">
       <%= link_to new_admin_product_path, class: "btn btn-info rounded-circle" do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-12">
       <table class="table">
         <thead class="thead-light">
