@@ -20,18 +20,21 @@ class Public::OrdersController < ApplicationController
 
   def create
     order = Order.new(order_params)
-    order.save
-    cart_products = CartProduct.where(customer_id: current_customer.id)
-    cart_products.each do |cart_product|
-      OrderDetail.create(
-        product_id: cart_product.product.id,
-        order_id: order.id,
-        quantity: cart_product.quantity,
-        tax_included_price: cart_product.product.tax_price
-        )
+    if order.save
+      cart_products = CartProduct.where(customer_id: current_customer.id)
+      cart_products.each do |cart_product|
+        OrderDetail.create(
+          product_id: cart_product.product.id,
+          order_id: order.id,
+          quantity: cart_product.quantity,
+          tax_included_price: cart_product.product.tax_price
+          )
+      end
+      cart_products.destroy_all
+      redirect_to thanks_orders_path
+    else
+      redirect_to new_order_path, alert: "注文の確定に失敗しました"
     end
-    cart_products.destroy_all
-    redirect_to thanks_orders_path
   end
 
   def confirm
@@ -61,9 +64,13 @@ class Public::OrdersController < ApplicationController
         redirect_to new_order_path, alert: "登録済住所がありません"
       end
     else
-      @order.postal_code = params[:order][:postal_code]
-      @order.address = params[:order][:address]
-      @order.address_name = params[:order][:address_name]
+      if params[:order][:postal_code].present? && params[:order][:address].present? && params[:order][:address_name].present?
+        @order.postal_code = params[:order][:postal_code]
+        @order.address = params[:order][:address]
+        @order.address_name = params[:order][:address_name]
+      else
+        redirect_to new_order_path, alert: "全て入力してください"
+      end
     end
   end
 
