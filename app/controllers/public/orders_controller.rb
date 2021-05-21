@@ -7,7 +7,7 @@ class Public::OrdersController < ApplicationController
   def show
    @order = Order.find(params[:id])
   end
-  
+
   def new
     if cart_products = CartProduct.where(customer_id: current_customer.id).present?
       @order = Order.new
@@ -52,10 +52,14 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.address_name = current_customer.first_name + current_customer.last_name
     elsif params[:order][:address_option] == "1"
-      @address = Address.find(params[:customer_address])
-      @order.postal_code = @address.postal_code
-      @order.address = @address.address
-      @order.address_name = @address.address_name
+      if params[:customer_address].present?
+        @address = Address.find(params[:customer_address])
+        @order.postal_code = @address.postal_code
+        @order.address = @address.address
+        @order.address_name = @address.address_name
+      else
+        redirect_to new_order_path, alert: "登録済住所がありません"
+      end
     else
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
