@@ -5,7 +5,7 @@
       <h3>ショッピングカート</h3>
     </div>
     <div class="col-4 mt-5 text-right">
-      <%= link_to "カートを空にする", destroy_all_cart_products_path, method: :delete, class: "btn btn-danger" %>
+      <%= link_to "カートを空にする", destroy_all_cart_products_path, method: :delete, class: "btn btn-danger", data: { confirm: "本当にカートを空にしますか？" } %>
     </div>
   </div>
   <div class="row mt-4">
