@@ -52,23 +52,19 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.address_name = current_customer.first_name + current_customer.last_name
     elsif params[:order][:address_option] == "1"
-      if params[:customer_address].present?
-        @address = Address.find(params[:customer_address])
-        @order.postal_code = @address.postal_code
-        @order.address = @address.address
-        @order.address_name = @address.address_name
-      else
-        redirect_to new_order_path, alert: "登録済住所がありません"
-      end
+      @address = Address.find(params[:customer_address])
+      @order.postal_code = @address.postal_code
+      @order.address = @address.address
+      @order.address_name = @address.address_name
     else
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.address_name = params[:order][:address_name]
-      if @order.invalid?
-        @customer = Customer.find(current_customer.id)
-        @customer_adresses = Address.where(customer_id: current_customer.id)
-        render :new
-      end
+    end
+    if @order.invalid?
+      @customer = Customer.find(current_customer.id)
+      @customer_adresses = Address.where(customer_id: current_customer.id)
+      render :new
     end
   end
 
