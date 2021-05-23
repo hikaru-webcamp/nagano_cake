@@ -12,7 +12,7 @@ class Admin::HomesController < ApplicationController
       @orders = Order.where(customer_id: params[:customer_id]).page(params[:page]).per(10)
     else
       #オーダーのデーター全部
-      @orders = Order.all.page(params[:page]).per(10)
+      @orders = Order.all.page(params[:page]).per(10).order(created_at: :desc)
     end
   end
 end

@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 
 #バリデーションの記述(空でないこと)
   validates :name, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 1 }
   validates :image, presence: true
   
   # 税込の計算
@@ -18,5 +18,4 @@ class Product < ApplicationRecord
     tax_price = self.price * tax_rate
     return tax_price.floor
   end
-  
 end

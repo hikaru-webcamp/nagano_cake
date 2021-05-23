@@ -1,11 +1,12 @@
 <div class="container">
-    <div class="row">
-      <h3>商品一覧<span class="small">(全<%= @products.total_count %>件)</span></h3>
+  <div class="row mb-3">
+    <div class="col-12">
+      <h2>商品一覧 <span class="small">(全<%= @products.total_count %>件)</span></h2>
     </div>
-    <div class="row">
-      <%= render "products_index", products: @products %>
-    </div>
-    <div class="d-flex justify-content-center">
-      <%= paginate @products %>
-    </div>
+  </div>
+  <%= render "products_index", products: @products %>
+
+  <div class="d-flex justify-content-center">
+    <%= paginate @products %>
+  </div>
 </div>
