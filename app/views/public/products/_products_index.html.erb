@@ -3,7 +3,7 @@
     <div class="col-sm-6 col-xl-3 mb-4">
       <div class="card bg-light">
         <%= link_to product_path(product), class: "text-reset" do%>
-          <%= attachment_image_tag(product, :image, size: "250x200", class: "card-img-top" )%>
+          <%= attachment_image_tag(product, :image, :fill, 250,200 , class: "card-img-top img-fluid" )%>
           <div class="card-body">
             <h5 class="card-title"><%= product.name %></h5>
             <p class="card-text">￥<%= product.tax_price.to_s(:delimited)  %></p>
