@@ -44,7 +44,7 @@ ja:
   devise:
     failure:
       customer:
-        inactive: このアカウンは退会しています
+        inactive: このアカウントは退会しています
         not_found_in_database: メールアドレスかパスワードが違っています
         invalid:  入力してくだい
         unauthenticated: ログインしてください
