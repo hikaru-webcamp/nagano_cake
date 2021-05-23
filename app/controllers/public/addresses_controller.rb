@@ -9,6 +9,7 @@ class Public::AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.customer = current_customer
     if @address.save
+      flash[:notice] = "配送先を登録しました"
       redirect_to addresses_path
     else
       @addresses = Address.where(customer: current_customer)
@@ -23,6 +24,7 @@ class Public::AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
+      flash[:notice] = "配送先情報を変更しました"
       redirect_to addresses_path
     else
       render :edit
