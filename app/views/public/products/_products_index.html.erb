@@ -1,14 +1,14 @@
 <div class="row">
   <% products.each do |product| %>
     <div class="col-sm-6 col-xl-3 mb-4">
-      <div class="card bg-light">
-        <%= link_to product_path(product), class: "text-reset" do%>
-          <%= attachment_image_tag(product, :image, size: "250x200", class: "card-img-top" )%>
-          <div class="card-body">
-            <h5 class="card-title"><%= product.name %></h5>
-            <p class="card-text">￥<%= product.tax_price.to_s(:delimited)  %></p>
+      <div class="card bg-light h-100 justify-content-between">
+          <%= attachment_image_tag(product, :image, :fill, 240, 180, class: "card-img-top img-fluid" )%>
+          <div class="card-body flex-grow-1 d-flex flex-column justify-content-between">
+            <%= link_to product_path(product), class: "text-reset stretched-link" do%>
+              <h5 class="card-title"><%= product.name %></h5>
+            <% end %>
+            <p class="card-text">￥<%= product.tax_price.to_s(:delimited) %></p>
           </div>
-        <% end %>
       </div>
     </div>
   <% end %>
