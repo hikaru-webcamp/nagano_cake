@@ -5,7 +5,7 @@
 <% if model.errors.any? %>
   <div class="alert alert-danger alert-dismissible fade show">
     <h5 class="alert-heading">
-      <%= pluralize(model.errors.count, "error") %> prohibited this <%= model.class.to_s.downcase %> from being saved:
+      <%= model.errors.count %> 件修正して下さい:
     </h5>
     <ul class="mb-0">
       <% model.errors.full_messages.each do |message| %>
