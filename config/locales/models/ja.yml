@@ -40,3 +40,20 @@ ja:
         
         
         
+  
+  devise:
+    failure:
+      customer:
+        inactive: このアカウンは退会しています
+        not_found_in_database: メールアドレスかパスワードが違っています
+        signed_up:  ながのCAKEへようこそ
+        invalid:  入力してくだい
+      admin:
+        unauthenticated: ログインしてください
+    sessions:
+      customer:
+        signed_in: ログインしました
+        signed_out: ログアウトしました
+      admin:
+        signed_out: ログアウトしました
+    
