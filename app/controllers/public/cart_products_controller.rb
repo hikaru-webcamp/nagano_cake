@@ -24,9 +24,13 @@ class Public::CartProductsController < ApplicationController
   def update
     cart_product = CartProduct.find(params[:id])
     if cart_product.customer_id == current_customer.id
-      cart_product.update(cart_product_params)
+      if cart_product.update(cart_product_params)
+        flash[:notice] = "商品の個数を変更しました"
+      else
+        flash[:alert] = "商品個数の変更に失敗しました"
+      end
     end
-    redirect_to cart_products_path, notice: "商品の個数を変更しました"
+    redirect_to cart_products_path
   end
 
   def destroy
