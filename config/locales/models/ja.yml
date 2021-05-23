@@ -3,6 +3,10 @@ ja:
     models:
       customer: 顧客
       address: 配送先
+      admin: 管理者
+      genre: ジャンル
+      product: 商品
+      order: 注文
     attributes:
       customer:
         first_name: 名前
@@ -18,5 +22,21 @@ ja:
         postal_code: 郵便番号
         address: 配送先住所
         address_name: 宛名
-  
-    
+      admin:
+        email: メールアドレス
+        password: パスワード
+      genre:
+        name: ジャンル名
+      product:
+        name: 商品名
+        genre: ジャンル名
+        introduction: 商品紹介
+        price: 税抜価格
+        image: 商品画像
+      order:
+        postal_code: 郵便番号
+        address: 配送先住所
+        address_name: 宛名
+        
+        
+        
