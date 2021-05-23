@@ -7,7 +7,7 @@ class Public::OrdersController < ApplicationController
   def show
    @order = Order.find(params[:id])
   end
-  
+
   def new
     if cart_products = CartProduct.where(customer_id: current_customer.id).present?
       @order = Order.new
@@ -19,13 +19,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
-    order.save
+    @order = Order.new(order_params)
+    @order.save
     cart_products = CartProduct.where(customer_id: current_customer.id)
     cart_products.each do |cart_product|
       OrderDetail.create(
         product_id: cart_product.product.id,
-        order_id: order.id,
+        order_id: @order.id,
         quantity: cart_product.quantity,
         tax_included_price: cart_product.product.tax_price
         )
@@ -60,6 +60,11 @@ class Public::OrdersController < ApplicationController
       @order.postal_code = params[:order][:postal_code]
       @order.address = params[:order][:address]
       @order.address_name = params[:order][:address_name]
+    end
+    if @order.invalid?
+      @customer = Customer.find(current_customer.id)
+      @customer_adresses = Address.where(customer_id: current_customer.id)
+      render :new
     end
   end
 
