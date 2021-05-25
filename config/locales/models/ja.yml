@@ -1,0 +1,62 @@
+ja:
+  activerecord:
+    models:
+      customer: 顧客
+      address: 配送先
+      admin: 管理者
+      genre: ジャンル
+      product: 商品
+      order: 注文
+    attributes:
+      customer:
+        first_name: 名前
+        last_name: 名前
+        first_name_kana: フリガナ
+        last_name_kana: フリガナ
+        email: メールアドレス
+        postal_code: 郵便番号
+        address: 住所
+        tel: 電話番号
+        password: パスワード
+      address:
+        postal_code: 郵便番号
+        address: 配送先住所
+        address_name: 宛名
+      admin:
+        email: メールアドレス
+        password: パスワード
+      genre:
+        name: ジャンル名
+      product:
+        name: 商品名
+        genre: ジャンル名
+        introduction: 商品紹介
+        price: 税抜価格
+        image: 商品画像
+      order:
+        postal_code: 郵便番号
+        address: 配送先住所
+        address_name: 宛名
+        
+        
+        
+  
+  devise:
+    failure:
+      customer:
+        inactive: このアカウントは退会しています
+        not_found_in_database: メールアドレスかパスワードが違っています
+        invalid:  入力してくだい
+        unauthenticated: ログインしてください
+      admin:
+        unauthenticated: ログインしてください
+    sessions:
+      customer:
+        signed_in: ログインしました
+        signed_out: ログアウトしました
+      admin:
+        signed_out: ログアウトしました
+    registrations:
+      customer:
+        signed_up:  ながのCAKEへようこそ
+    

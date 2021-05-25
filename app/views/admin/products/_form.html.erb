@@ -1,0 +1,75 @@
+ <!--部分テンプレートにより、@product ➩ product-->
+<%= form_with model: [:admin, product], local:true do |f| %>
+  <%= render 'shared/form_error', model: product %>
+
+  <div class="form-group row">
+    <%= f.label :image, "商品画像", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+      <div class="custom-file">
+        <%= f.attachment_field :image, class: "custom-file-input" %>
+        <%= f.label :image, "商品画像を選択", class: "custom-file-label" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :name, "商品名", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+      <%= f.text_field :name, placeholder: "商品名を記述して下さい",
+        class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :introduction, "商品説明", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+      <%= f.text_area :introduction, placeholder: "こちらに商品の説明文を記述して下さい",
+        class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :genre_id, "ジャンル", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+      <%= f.collection_select :genre_id, Genre.all, :id, :name,
+        {prompt: "選択してください"}, {class: "form-control"} %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :price, "税抜き価格", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+        <%= f.text_field :price, placeholder: "商品の税別価格を記述して下さい", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.label :is_active, "販売ステータス", class: "col-sm-4 col-form-label" %>
+    <div class="col-sm-8">
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :is_active, true, class: "form-check-input" %>
+        <%= f.label :is_active, "販売中", value: true, class: "form-check-label" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :is_active, false, class: "form-check-input" %>
+        <%= f.label :is_active, "販売停止中", value: false, class: "form-check-label" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-12 text-right">
+      <% if product.id.nil? %>
+        <%= f.submit "新規登録", class:"btn btn-success" %>
+      <% else %>
+        <%= f.submit "変更を保存", class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+    $('.custom-file input').change(function (e) {
+        $('.custom-file-label').html(e.target.files[0].name);
+    });
+</script>

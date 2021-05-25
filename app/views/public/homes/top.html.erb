@@ -1,2 +1,33 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+  <%= render "shared/flash_message" %>
+  <div class="row mb-4">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <div class="card">
+        <%= image_tag "top_image.jpg", class: "bd-placeholder-img bd-placeholder-img-lg card-img rounded" %>
+        <div class="card-img-overlay d-flex">
+          <p class="card-text align-self-center mx-auto font-weight-bold h5" id="top-text">
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。<br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-12">
+      <h3 class="mb-4">新着商品</h3>
+    </div>
+  </div>
+
+  <%= render "public/products/products_index", products: @products %>
+
+  <div class="row">
+    <div class="col-12 text-right">
+      <%= link_to "全ての商品を見る>", products_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>
+

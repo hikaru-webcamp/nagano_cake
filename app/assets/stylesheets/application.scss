@@ -14,3 +14,20 @@
  *= require_self
  */
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+ .field_with_errors {
+  display: contents;
+  input {
+    @extend .is-invalid;
+  }
+}
+
+#top-text {
+ color: white;
+ text-shadow:2px  2px 10px #546,
+              -2px  2px 10px #777 ,
+              2px -2px 10px #777 ,
+              -2px -2px 10px #777;
+}

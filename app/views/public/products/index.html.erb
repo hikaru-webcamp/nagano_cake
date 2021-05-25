@@ -1,2 +1,12 @@
-<h1>Public::Products#index</h1>
-<p>Find me in app/views/public/products/index.html.erb</p>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col-12">
+      <h2>商品一覧 <span class="small">(全<%= @products.total_count %>件)</span></h2>
+    </div>
+  </div>
+  <%= render "products_index", products: @products %>
+
+  <div class="d-flex justify-content-center">
+    <%= paginate @products %>
+  </div>
+</div>
