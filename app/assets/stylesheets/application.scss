@@ -13,11 +13,11 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
- @import "font-awesome-sprockets";
- @import "font-awesome";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
- .field_with_errors {
+.field_with_errors {
   display: contents;
   input {
     @extend .is-invalid;
@@ -25,9 +25,14 @@
 }
 
 #top-text {
- color: white;
- text-shadow:2px  2px 10px #546,
-              -2px  2px 10px #777 ,
-              2px -2px 10px #777 ,
-              -2px -2px 10px #777;
+  color: white;
+  text-shadow: 2px 2px 10px #546, -2px 2px 10px #777, 2px -2px 10px #777, -2px -2px 10px #777;
+}
+
+.hover-img {
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.1);
+    z-index: 10;
+  }
 }

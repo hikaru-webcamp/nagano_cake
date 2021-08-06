@@ -1,7 +1,7 @@
-<div class="container">
+<div class="containerp-2">
   <%= render "shared/flash_message" %>
   <div class="row mb-4">
-    <div class="col-md-10 col-lg-8 mx-auto">
+    <div class="col-md-10 col-lg-8 mx-auto shadow-lg">
       <div class="card">
         <%= image_tag "top_image.jpg", class: "bd-placeholder-img bd-placeholder-img-lg card-img rounded" %>
         <div class="card-img-overlay d-flex">
@@ -15,8 +15,8 @@
       </div>
     </div>
   </div>
-  
-  <div class="row">
+
+  <div class="row m-3">
     <div class="col-12">
       <h3 class="mb-4">新着商品</h3>
     </div>
@@ -24,10 +24,9 @@
 
   <%= render "public/products/products_index", products: @products %>
 
-  <div class="row">
+  <div class="row m-3">
     <div class="col-12 text-right">
       <%= link_to "全ての商品を見る>", products_path, class: "btn btn-outline-secondary" %>
     </div>
   </div>
 </div>
-
