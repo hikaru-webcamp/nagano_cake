@@ -15,7 +15,7 @@
           <% @cart_products.each do |cart_product| %>
             <tr>
               <td>
-                <%= attachment_image_tag cart_product.product, :image, :fill, 70, 50, format: "jpeg" %>
+                <%= attachment_image_tag cart_product.product, :image, size: "70x50", format: "jpg" %>
                 <%= cart_product.product.name %>
               </td>
               <td class="text-center">
@@ -76,13 +76,13 @@
       お届け先
     </h4>
     <div class="col-7">
-      <%= "〒"+ @order.postal_code %>
+      <%= "〒" + @order.postal_code %>
       <%= @order.address %><br>
       <%= @order.address_name %>
     </div>
   </div>
     <div class="col text-center">
-      <%= form_with model: @order, local:true do |f| %>
+      <%= form_with model: @order, local: true do |f| %>
         <%= f.hidden_field :customer_id %>
         <%= f.hidden_field :shipping_fee %>
         <%= f.hidden_field :total_price %>
@@ -90,7 +90,7 @@
         <%= f.hidden_field :address_name %>
         <%= f.hidden_field :address %>
         <%= f.hidden_field :postal_code %>
-        <%= f.submit "注文を確定する" , class:"btn btn-success mt-4 w-25" %>
+        <%= f.submit "注文を確定する", class: "btn btn-success mt-4 w-25" %>
       <% end %>
     </div>
 </div>

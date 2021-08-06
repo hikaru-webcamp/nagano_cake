@@ -1,9 +1,9 @@
 <div class="containerp-2">
   <%= render "shared/flash_message" %>
   <div class="row mb-4">
-    <div class="col-md-10 col-lg-8 mx-auto shadow-lg">
+    <div class="col-md-10 col-lg-8 mx-auto ">
       <div class="card">
-        <%= image_tag "top_image.jpg", class: "bd-placeholder-img bd-placeholder-img-lg card-img rounded" %>
+        <%= image_tag "top_image.jpg", size: "240x400", class: "bd-placeholder-img bd-placeholder-img-lg card-img rounded shadow-lg" %>
         <div class="card-img-overlay d-flex">
           <p class="card-text align-self-center mx-auto font-weight-bold h5" id="top-text">
             ようこそ、ながのCAKEへ！<br>
@@ -11,14 +11,24 @@
             会員でない方も商品の閲覧はできますが、<br>
             購入には会員登録が必要になります。<br>
           </p>
+
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row m-3">
+  <div class="row m-3 border-bottom ">
+    <div class="col-12 text-center">
+      <h5 class="mb-4">こちらでかんたんにログインできます。(会員登録不要)</h5>
+    </div>
+    <div class="col-12 text-center">
+      <h3 class="mb-4"><%= link_to "かんたんログイン", customers_guest_sign_in_path, method: :post, class: "btn btn-outline-dark btn hover-img" %></h3>
+    </div>
+  </div>
+
+  <div class="row m-3 ">
     <div class="col-12">
-      <h3 class="mb-4">新着商品</h3>
+      <h3 class="mb-4 text-center">新着商品</h3>
     </div>
   </div>
 
