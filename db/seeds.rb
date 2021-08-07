@@ -49,7 +49,7 @@ Genre.all.each do |genre|
       name: "テスト商品#{genre.id}-#{n}",
       introduction: "テスト商品#{genre.id}-#{n}の説明",
       price: 100 * rand(1..20),
-      image: File.open("#{Rails.root}/app/assets/images/cake_images/cake_image#{n + 1}.jpg"),
+      image: File.open("#{Rails.root}/app/assets/images/cake_image#{n + 1}.jpg"),
     )
   end
 end
