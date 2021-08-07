@@ -5,13 +5,13 @@
     <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 mx-auto">
       <h2 class="mb-3 ml-sm-n2">ログイン</h2>
       <h4 class="mb-3">会員の方はこちらからログイン</h4>
-      
-      <%= form_with model: @customer, url: customer_session_path, local:true, class: "pl-sm-4" do |f| %>
+
+      <%= form_with model: @customer, url: customer_session_path, local: true, class: "pl-sm-4" do |f| %>
         <div class="form-group row">
           <%= f.label :email, "メールアドレス", class: "col-sm-4 col-form-label" %>
           <div class="col-sm-8">
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", 
-              placeholder: "simple@example.com", class: "form-control" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",
+                                      placeholder: "simple@example.com", class: "form-control" %>
           </div>
         </div>
         <div class="form-group row">
@@ -28,7 +28,11 @@
       <% end %>
 
       <h4 class="mb-3">会員登録がお済みでない方</h4>
-      <p class="pl-4"><%= link_to"こちら", new_customer_registration_path %> から新規登録を行ってください。</p>
+      <p class="pl-4"><%= link_to "こちら", new_customer_registration_path %> から新規登録を行ってください。</p>
+      <h5 class="mt-5 text-dark">テストアカウントでのログイン</h5>
+      <h4>email:  user1@test.com</h4>
+      <h4>pass:   testtest</h4>
     </div>
+
   </div>
 </div>
