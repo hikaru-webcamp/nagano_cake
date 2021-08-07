@@ -1,11 +1,14 @@
 ## チームで作ったECアプリです。
 ケーキ屋さんのアプリです。
 
-下記URL
+ケーキ屋ECアプリのURL
 https://nagano----cake.herokuapp.com/
 
+
+
+
 注意点：Herokuの無料プランでデプロイしている為、一定時間たつと投稿画像が消えます。
-https://qiita.com/hmmrjn/items/b02f076ceaeeaaceb999
+参考記事：https://qiita.com/hmmrjn/items/b02f076ceaeeaaceb999
 
 
 理由
