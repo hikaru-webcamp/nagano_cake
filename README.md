@@ -2,7 +2,14 @@
 ケーキ屋さんのアプリです。
 
 下記URL
+https://nagano----cake.herokuapp.com/
 
+注意点：Herokuの無料プランでデプロイしている為、一定時間たつと投稿画像が消えます。
+https://qiita.com/hmmrjn/items/b02f076ceaeeaaceb999
+
+
+理由
+一定時間が経つと、Heroku上のリポジトリ (Dyno) が最後のコミットの状態にリセットされるから。
 
 ## 技術的なポイント
  * herokuによるデプロイ
