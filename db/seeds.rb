@@ -11,7 +11,7 @@ Admin.create!(
   password: "teamsmile",
 )
 
-20.times do |n|
+10.times do |n|
   Customer.create!(
     first_name: "太郎#{n}",
     last_name: "てすと",
@@ -36,14 +36,14 @@ Customer.all.each do |customer|
   end
 end
 
-5.times do |n|
+2.times do |n|
   Genre.create!(
     name: "テストジャンル#{n}",
   )
 end
 
 Genre.all.each do |genre|
-  rand(0..10).times do |n|
+  rand(0..4).times do |n|
     Product.create!(
       genre_id: genre.id,
       name: "テスト商品#{genre.id}-#{n}",
@@ -56,7 +56,7 @@ end
 
 Customer.all.each do |customer|
   rand(0..3).times do
-    products = Product.all.sample(rand(1..10))
+    products = Product.all
     total_price = 0
     order_details = []
     products.each do |product|
