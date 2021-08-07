@@ -7,7 +7,7 @@ https://nagano----cake.herokuapp.com/
 
 
 
-注意点：Herokuの無料プランでデプロイしている為、一定時間たつと投稿画像が消えます。
+注意点：Herokuの無料プランでデプロイしている為、一定時間たつと投稿画像が消えます。  
 参考記事：https://qiita.com/hmmrjn/items/b02f076ceaeeaaceb999
 
 
