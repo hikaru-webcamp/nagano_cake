@@ -81,3 +81,4 @@ gem 'rails-i18n'
 
 
 gem 'pg', group: :production  # この1行を追加
+gem 'rails_12factor', group: :production
