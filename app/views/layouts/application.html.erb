@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>NaganoCake</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
 
   <body class="min-vh-100 d-flex flex-column">
     <header class="mb-4">
       <% if controller.class.parent.name == "Admin" %>
-        <%# Admin側のヘッダー %>
+        <% # Admin側のヘッダー %>
         <%= render "admin/shared/header" %>
       <% else %>
-        <%# Public側のヘッダー %>
+        <% # Public側のヘッダー %>
         <%= render "public/shared/header" %>
       <% end %>
     </header>
