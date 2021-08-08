@@ -1,10 +1,8 @@
-## チームで作ったECアプリです。
+## ECアプリです。
 ケーキ屋さんのアプリです。
 
 ケーキ屋ECアプリのURL
 https://nagano----cake.herokuapp.com/
-
-
 
 
 注意点：Herokuの無料プランでデプロイしている為、一定時間たつと投稿画像が消えます。  
@@ -47,6 +45,8 @@ https://nagano----cake.herokuapp.com/
 
 # ER図
 ![スクリーンショット 2021-08-07 8 47 19](https://user-images.githubusercontent.com/79980351/128580587-5ea11f6b-04c8-4f8d-beff-8c95b7d720e6.png)
+# 要件定義書
+[要件定義書.pdf](https://github.com/hikaru-webcamp/nagano_cake/files/6950205/default.pdf)
 
 
 # 実装機能
