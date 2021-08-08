@@ -28,8 +28,7 @@
           <% @cart_products.each do |cart_product| %>
             <tr>
               <td class="align-middle">
-                <%= attachment_image_tag cart_product.product, :image, size: "70x50", format: "jpg" %>
-                <%= cart_product.product.name %>
+               <%= image_tag "/cake_image.jpg", size: "240x400", class: "bd-placeholder-img bd-placeholder-img-lg card-img rounded shadow-lg" %>
               </td>
               <td class="text-center align-middle">
                 <%= cart_product.product.tax_price.to_s(:delimited) %>
